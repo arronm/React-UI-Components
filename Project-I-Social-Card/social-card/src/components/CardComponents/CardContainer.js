@@ -17,15 +17,17 @@ class CardContainer extends Component {
   render() {
     console.log(this);
     return ( 
-      <div className='Container'>
-        <a href={this.state.link} target='_blank' rel="noopener noreferrer">
-          <CardBanner image={this.state.image} />
-          <CardContent>
-            <strong>Get started with React</strong>
-            {this.state.content}
-            <span>{this.state.link}</span>
-          </CardContent>
-        </a>
+      <div className='Card'>
+        <div class="Card__wrapper">
+          <a href={this.state.link} target='_blank' rel="noopener noreferrer">
+            <CardBanner image={this.state.image} />
+            <CardContent>
+              <strong>Get started with React</strong>
+              {this.state.content}
+              <span>{this.state.link}</span>
+            </CardContent>
+          </a>
+        </div>
       </div>
      );
   }
