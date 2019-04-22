@@ -15,7 +15,6 @@ class CardContainer extends Component {
      }
   }
   render() {
-    console.log(this);
     return ( 
       <div className='Card'>
         <div className="Card__wrapper">
