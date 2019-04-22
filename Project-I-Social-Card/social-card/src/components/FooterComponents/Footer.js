@@ -12,8 +12,10 @@ class Footer extends Component {
   render() {
     return (
       <div>
-        <strong>{this.state.strong}</strong>
-        <p>{this.state.paragraph}</p>
+        <span><i className='fa fa-comment' /></span>
+        <span><i className='fa fa-sync-alt' />6</span>
+        <span><i className='fa fa-heart' />4</span>
+        <span><i className='fa fa-envelope' /></span>
       </div>
     )
   }
