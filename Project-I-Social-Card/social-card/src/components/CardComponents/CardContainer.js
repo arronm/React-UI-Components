@@ -3,8 +3,6 @@ import './Card.scss';
 import CardBanner from './CardBanner';
 import CardContent from './CardContent';
 
-// TODO: How to handle linking with https and displaying without https
-
 class CardContainer extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +21,7 @@ class CardContainer extends Component {
             <CardContent>
               <strong>Get started with React</strong>
               {this.state.content}
-              <span>{this.state.link}</span>
+              <span>{this.state.link.replace('https://', '')}</span>
             </CardContent>
           </a>
         </div>
