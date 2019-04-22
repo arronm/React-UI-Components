@@ -17,8 +17,8 @@ class CardContainer extends Component {
   render() {
     console.log(this);
     return ( 
-      <div>
-        <a href={this.state.link} target='_blank'>
+      <div className='Container'>
+        <a href={this.state.link} target='_blank' rel="noopener noreferrer">
           <CardBanner image={this.state.image} />
           <CardContent>
             <strong>Get started with React</strong>

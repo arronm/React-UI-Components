@@ -12,7 +12,7 @@ class CardBanner extends Component {
   render() { 
     return ( 
       <div className='card-banner'>
-        <img src={this.state.image} />
+        <img src={this.state.image} alt='An Image.' />
       </div>
     );
   }

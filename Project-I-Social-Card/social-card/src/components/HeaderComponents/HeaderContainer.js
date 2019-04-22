@@ -9,7 +9,7 @@ class HeaderContainer extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className='HeaderContainer'>
         <ImageThumbnail image='https://tk-assets.lambdaschool.com/1c1b7262-cf23-4a9f-90b6-da0d3c74a5c6_lambdacrest.png' />
         <HeaderContent title='Lambda School' handle='@LambdaSchool'>
           <p>

@@ -13,12 +13,12 @@ class HeaderTitle extends Component {
   }
   render() { 
     return ( 
-      <div class="title">
-        <h1>
+      <div className='title'>
+        <strong className='title__username'>
           {this.state.title}
-        </h1>
-        <span>
-          {this.state.handle} * <Moment format="DD MMM">{this.state.timestamp}</Moment>
+        </strong>
+        <span className='title__handle'>
+          {this.state.handle} &#9679; <Moment format="DD MMM">{this.state.timestamp}</Moment>
         </span>
       </div>
      );

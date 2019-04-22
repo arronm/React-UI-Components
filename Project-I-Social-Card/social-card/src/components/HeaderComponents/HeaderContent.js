@@ -13,9 +13,9 @@ class HeaderContent extends Component {
   }
   render() { 
     return ( 
-      <div>
+      <div className='HeaderContent'>
         <HeaderTitle title={this.state.title} handle={this.state.handle} />
-        <p>{this.state.content}</p>
+        <div className='content'>{this.state.content}</div>
       </div>
      );
   }

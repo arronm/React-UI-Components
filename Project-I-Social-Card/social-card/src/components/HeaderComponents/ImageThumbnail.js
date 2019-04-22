@@ -11,7 +11,7 @@ class ImageThumbnail extends Component {
   render() { 
     return (
       <div className='thumbnail'>
-        <img src={this.state.image} />
+        <img src={this.state.image} alt='profile image' />
       </div>
      );
   }

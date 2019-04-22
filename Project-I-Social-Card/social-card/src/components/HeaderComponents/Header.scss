@@ -1,1 +1,41 @@
 /* All styles for your header Components live here */
+@import '../../variables';
+
+.HeaderContainer {
+  display: flex;
+  padding: 10px;
+
+  .HeaderContent {
+    padding: 0 10px;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &__username {
+      display: inline-block;
+      font-size: 0.9rem;
+    }
+
+    &__handle {
+      color: $mono-med;
+      font-size: 0.7rem;
+    }
+  }
+
+  .content {
+    font-size: 1.4em;
+    margin-top: 10px;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .thumbnail {
+    min-width: 50px;
+    width: 50px;
+  }
+}
