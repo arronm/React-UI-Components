@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Moment from 'react-moment';
 import './Header.scss';
 
 class HeaderTitle extends Component {
@@ -17,7 +18,7 @@ class HeaderTitle extends Component {
           {this.state.title}
         </h1>
         <span>
-          {this.state.handle} * {this.state.timestamp}
+          {this.state.handle} * <Moment format="DD MMM">{this.state.timestamp}</Moment>
         </span>
       </div>
      );
