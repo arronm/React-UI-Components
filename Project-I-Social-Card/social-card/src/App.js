@@ -7,8 +7,12 @@ const App = () => {
   return (
     <div className="App">
       <HeaderContainer />
-      <CardContainer />
-      
+      <CardContainer link='https://reactjs.org' image='https://tk-assets.lambdaschool.com/fcd75197-7d12-46ec-bc9e-4130f34822fa_reactbackground.png'>
+        <p>
+          React makes it painless to create interactive UIs. Design simple views for each state in your application.
+        </p>
+      </CardContainer>
+
       <h3>Welcome to React Social Card!</h3>
       <p>
         Begin by exploring the `components` directory. You'll notice we have a

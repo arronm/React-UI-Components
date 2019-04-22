@@ -3,18 +3,29 @@ import './Card.scss';
 import CardBanner from './CardBanner';
 import CardContent from './CardContent';
 
+// TODO: How to handle linking with https and displaying without https
+
 class CardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-
+      image: this.props.image,
+      content: this.props.children,
+      link: this.props.link,
      }
   }
-  render() { 
+  render() {
+    console.log(this);
     return ( 
       <div>
-        <CardBanner image='https://tk-assets.lambdaschool.com/fcd75197-7d12-46ec-bc9e-4130f34822fa_reactbackground.png' />
-        <CardContent />
+        <a href={this.state.link} target='_blank'>
+          <CardBanner image={this.state.image} />
+          <CardContent>
+            <strong>Get started with React</strong>
+            {this.state.content}
+            <span>{this.state.link}</span>
+          </CardContent>
+        </a>
       </div>
      );
   }

@@ -5,14 +5,14 @@ class CardContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      content: this.props.children,
     };
   }
 
   render() {
     return (
-      <div>
-        Content
+      <div className='card-content'>
+        {this.state.content}
       </div>
     );
   }
