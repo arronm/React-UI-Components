@@ -18,7 +18,7 @@ class CardContainer extends Component {
     console.log(this);
     return ( 
       <div className='Card'>
-        <div class="Card__wrapper">
+        <div className="Card__wrapper">
           <a href={this.state.link} target='_blank' rel="noopener noreferrer">
             <CardBanner image={this.state.image} />
             <CardContent>
