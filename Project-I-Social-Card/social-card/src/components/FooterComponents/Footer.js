@@ -11,7 +11,7 @@ class Footer extends Component {
 
   render() {
     return (
-      <div>
+      <div className='Footer'>
         <span><i className='fa fa-comment' /></span>
         <span><i className='fa fa-sync-alt' />6</span>
         <span><i className='fa fa-heart' />4</span>
