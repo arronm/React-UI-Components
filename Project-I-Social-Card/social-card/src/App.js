@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 const App = () => {
   return (
-    <div>
+    <div className="App">
       <h3>Welcome to React Social Card!</h3>
       <p>
         Begin by exploring the `components` directory. You'll notice we have a
