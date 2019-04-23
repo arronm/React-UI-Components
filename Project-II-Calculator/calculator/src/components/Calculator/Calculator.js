@@ -9,53 +9,65 @@ class Calculator extends Component {
     this.state = { 
       calculation: '0',
       calculated: false,
+      lastOperation: '',
     }
     this.updateCalculation = this.updateCalculation.bind(this);
 
-    // TODO: Probably a better way to manage these functions, perhaps eval?
     this.operators = {
-      "+": (operation) => {
-        const numbers = operation[0].split("+");
-        const result = parseInt(numbers[0]) + parseInt(numbers[1]);
-        const calculation = operation.input.replace(operation[0], result);
-        return calculation;
-      },
-      "*": (operation) => {
-        const numbers = operation[0].split("*");
-        const result = parseInt(numbers[0]) * parseInt(numbers[1]);
-        const calculation = operation.input.replace(operation[0], result);
-        return calculation;
-      },
-      "/": (operation) => {
-        const numbers = operation[0].split("/");
-        const result = parseInt(numbers[0]) / parseInt(numbers[1]);
-        const calculation = operation.input.replace(operation[0], result);
-        return calculation;
-      },
-      "-": (operation) => {
-        const numbers = operation[0].split("-");
-        const result = parseInt(numbers[0]) - parseInt(numbers[1]);
-        const calculation = operation.input.replace(operation[0], result);
-        return calculation;
-      },
+      "+": (num1, num2) => num1 + num2,
+      "*": (num1, num2) => num1 * num2,
+      "/": (num1, num2) => num1 / num2,
+      "-": (num1, num2) => num1 - num2,
       "=": true,
       "c": true,
     };
   }
 
   calculate(calculation) {
+    let negative = false;
+
     if (!/\D/.exec(calculation)) {
       return calculation;
+    }
+
+    if (/^\-\d*/.exec(calculation)) {
+      console.log('NEGATIVE NUMBER');
+      calculation = calculation.replace('-', '');
+      negative = true;
     }
 
     let operation = /\d*(\*|\/)\d*/.exec(calculation);
     if (operation === null) {
       operation = /\d*(\+|\-)\d*/.exec(calculation);
-      if (!operation) return calculation;
+      if (!operation) {
+        if (negative = true) return '-' + calculation;
+        return calculation;
+      }
     };
 
     let operator = /\D/.exec(operation);
-    return this.calculate(this.operators[operator](operation));
+    
+    if (operation[0][0] === '-') {
+      console.log('what line 67', operation);
+      operation[0] = operation[0].replace('-', '');
+      negative = true;
+    }
+
+    console.log(operation);
+
+    const numbers = operation[0].split(operator);
+
+    if (negative) {
+      numbers[0] = '-' + numbers[0];
+    }
+
+    console.log('numbers', numbers);
+
+    const result = this.operators[operator](parseInt(numbers[0], 0), parseInt(numbers[1], 0));
+    return this.calculate(operation.input.replace(operation[0], result));
+
+    // Could return eval here, but I feel like that's cheating
+    // return eval(this.state.calculation);
   }
 
   updateCalculation = (string) => {
@@ -88,11 +100,18 @@ class Calculator extends Component {
           return;
         }
 
-        this.setState({
-          ...this.state,
-          calculation: this.state.calculation === '0' ? '0' : this.state.calculation + string,
-          calculated: false,
-        });
+        if (string === '-') {
+          this.setState({
+            ...this.state,
+            calculation: this.state.calculation + string,
+          });
+        } else { 
+          this.setState({
+            ...this.state,
+            calculation: this.state.calculation === '0' ? '0' : this.state.calculation + string,
+            calculated: false,
+          });
+        }
       }
       return;
     }
