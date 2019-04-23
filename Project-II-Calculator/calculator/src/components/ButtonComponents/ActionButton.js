@@ -8,10 +8,6 @@ class ActionButton extends Component {
     this.updateCalculation = this.updateCalculation.bind(this);
   }
 
-  // When an action button is clicked:
-  // -- If operator = '=', perform calculations
-  // -- Else add operator to calculation string
-
   updateCalculation(e) {
     this.props.updateCalculation(e.target.dataset.operator);
   }
@@ -28,7 +24,7 @@ class ActionButton extends Component {
       displayValue = '×';
     }
     return ( 
-      <div className={`ActionButton ${this.props.className || ''}`}>
+      <div className={`ActionButton ${this.props.buttonStyle}`}>
         <input type='button' onClick={this.updateCalculation} data-operator={this.operator} value={displayValue} />
       </div>
      );

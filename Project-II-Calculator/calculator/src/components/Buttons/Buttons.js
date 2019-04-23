@@ -13,7 +13,7 @@ class Buttons extends Component {
   render() { 
     return ( 
       <div className='Button'>
-        <ActionButton {...this.state} operator='c' className="long-button"/>
+        <ActionButton {...this.state} operator='c' buttonStyle="long-button"/>
         <ActionButton {...this.state} operator='/' />
         <NumberButton {...this.state} number='7' />
         <NumberButton {...this.state} number='8' />
@@ -27,7 +27,7 @@ class Buttons extends Component {
         <NumberButton {...this.state} number='2' />
         <NumberButton {...this.state} number='3' />
         <ActionButton {...this.state} operator='+' />
-        <NumberButton {...this.state} number='0' className="long-button" />
+        <NumberButton {...this.state} number='0' buttonStyle="long-button" />
         <ActionButton {...this.state} operator='=' />
       </div>
      );
