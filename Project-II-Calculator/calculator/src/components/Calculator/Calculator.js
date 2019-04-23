@@ -113,7 +113,7 @@ class Calculator extends Component {
 
   render() {
     return ( 
-      <div>
+      <div className='Calculator'>
         <CalculatorDisplay calculation={this.state.calculation} />
         <Buttons updateCalculation={this.updateCalculation} />
       </div>

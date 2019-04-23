@@ -1,0 +1,28 @@
+.Button {
+  display: flex;
+  flex-wrap: wrap;
+
+  .ActionButton, .NumberButton {
+    flex-basis: 25%;
+    height: 95px;
+
+    &.long-button {
+      flex-basis: 75%;
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      font-size: 3rem;
+      border: 1px solid gray;
+      background: #fcfcfc;
+    }
+  }
+
+  .ActionButton:not(.long-button) {
+    input {
+      color: #fcfcfc;
+      background: #a0001e;
+    }
+  }
+}

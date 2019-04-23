@@ -14,7 +14,7 @@ class NumberButton extends Component {
 
   render() { 
     return (
-      <div className='NumberButton'>
+      <div className={`NumberButton ${this.props.className || ''}`}>
         <input onClick={this.updateCalculation} type='button' value={this.number} />
       </div>
      );

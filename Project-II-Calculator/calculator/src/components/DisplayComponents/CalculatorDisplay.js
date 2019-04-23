@@ -15,7 +15,7 @@ class CalculatorDisplay extends Component {
     // this.calculation = this.props.calculation;
     return (
       <div className='CalculatorDisplay'>
-        {this.calculation}
+        <span>{this.calculation}</span>
       </div>
     );
   }

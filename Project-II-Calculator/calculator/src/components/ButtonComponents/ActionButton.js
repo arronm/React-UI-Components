@@ -13,13 +13,23 @@ class ActionButton extends Component {
   // -- Else add operator to calculation string
 
   updateCalculation(e) {
-    this.props.updateCalculation(e.target.value);
+    this.props.updateCalculation(e.target.dataset.operator);
   }
 
-  render() { 
+  render() {
+    let displayValue = this.operator;
+    if (displayValue === 'c') {
+      displayValue = 'clear';
+    }
+    if (displayValue === '/') {
+      displayValue = '÷';
+    }
+    if (displayValue === '*') {
+      displayValue = '×';
+    }
     return ( 
-      <div className='ActionButton'>
-        <input type='button' onClick={this.updateCalculation} value={this.operator} />
+      <div className={`ActionButton ${this.props.className || ''}`}>
+        <input type='button' onClick={this.updateCalculation} data-operator={this.operator} value={displayValue} />
       </div>
      );
   }
