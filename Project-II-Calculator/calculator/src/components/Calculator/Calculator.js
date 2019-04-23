@@ -31,7 +31,6 @@ class Calculator extends Component {
     }
 
     if (/^\-\d*/.exec(calculation)) {
-      console.log('NEGATIVE NUMBER');
       calculation = calculation.replace('-', '');
       negative = true;
     }
@@ -48,7 +47,6 @@ class Calculator extends Component {
     let operator = /\D/.exec(operation);
     
     if (operation[0][0] === '-') {
-      console.log('what line 67', operation);
       operation[0] = operation[0].replace('-', '');
       negative = true;
     }
@@ -60,8 +58,6 @@ class Calculator extends Component {
     if (negative) {
       numbers[0] = '-' + numbers[0];
     }
-
-    console.log('numbers', numbers);
 
     const result = this.operators[operator](parseInt(numbers[0], 0), parseInt(numbers[1], 0));
     return this.calculate(operation.input.replace(operation[0], result));
