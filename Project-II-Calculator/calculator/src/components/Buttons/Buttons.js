@@ -13,22 +13,22 @@ class Buttons extends Component {
   render() { 
     return ( 
       <div className='Button'>
-        <ActionButton operator='c' />
-        <ActionButton operator='/' />
+        <ActionButton {...this.state} operator='c' />
+        <ActionButton {...this.state} operator='/' />
         <NumberButton {...this.state} number='7' />
         <NumberButton {...this.state} number='8' />
         <NumberButton {...this.state} number='9' />
-        <ActionButton operator='*' />
+        <ActionButton {...this.state} operator='*' />
         <NumberButton {...this.state} number='4' />
         <NumberButton {...this.state} number='5' />
         <NumberButton {...this.state} number='6' />
-        <ActionButton operator='-' />
+        <ActionButton {...this.state} operator='-' />
         <NumberButton {...this.state} number='1' />
         <NumberButton {...this.state} number='2' />
         <NumberButton {...this.state} number='3' />
-        <ActionButton operator='+' />
+        <ActionButton {...this.state} operator='+' />
         <NumberButton {...this.state} number='0' />
-        <ActionButton operator='=' />
+        <ActionButton {...this.state} operator='=' />
       </div>
      );
   }

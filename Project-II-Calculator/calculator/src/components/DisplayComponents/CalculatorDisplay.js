@@ -4,15 +4,15 @@ import './Display.scss';
 class CalculatorDisplay extends Component {
   constructor(props) {
     super(props);
-    this.calculation = this.props.calculation;
+    this.calculation = '0';
   }
-
+  
   componentWillReceiveProps(nextProps) {
     this.calculation = nextProps.calculation;
   }
-
+    
   render() {
-    console.log('y u no render:', this);
+    // this.calculation = this.props.calculation;
     return (
       <div className='CalculatorDisplay'>
         {this.calculation}

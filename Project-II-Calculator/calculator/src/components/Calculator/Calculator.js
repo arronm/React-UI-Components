@@ -12,17 +12,54 @@ class Calculator extends Component {
     this.updateCalculation = this.updateCalculation.bind(this);
   }
 
-  updateCalculation = (number) => {
-    this.setState({
-      ...this.state,
-      calculation: this.state.calculation === '0' ? number : this.state.calculation + number,
-    })
+  calculate() {
+    // calculate from string
+    return 42;
   }
 
-  render() { 
+  updateCalculation = (string) => {
+    const operators = {
+      "+": true,
+      "*": true,
+      "/": true,
+      "-": true,
+      "=": true,
+      "c": true,
+    };
+
+    if (operators[string]) {
+      if (string === '=') {
+        const result = this.calculate();
+        this.setState({
+          ...this.state,
+          calculation: result,
+        });
+        return;
+      }
+
+      if (string === 'c') {
+        this.setState({
+          ...this.state,
+          calculation: '0',
+        });
+      } else {
+        this.setState({
+          ...this.state,
+          calculation: this.state.calculation === '0' ? '0' : this.state.calculation + string,
+        });
+      }
+      return;
+    }
+    
+    this.setState({
+      ...this.state,
+      calculation: this.state.calculation === '0' ? string : this.state.calculation + string,
+    });
+  }
+
+  render() {
     return ( 
       <div>
-        Calculator: {this.state.calculation}
         <CalculatorDisplay calculation={this.state.calculation} />
         <Buttons updateCalculation={this.updateCalculation} />
       </div>

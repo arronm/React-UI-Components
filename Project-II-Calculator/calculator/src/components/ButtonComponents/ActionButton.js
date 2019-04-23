@@ -4,19 +4,22 @@ import './Button.scss';
 class ActionButton extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      operator: this.props.operator,
-     }
+    this.operator = this.props.operator;
+    this.updateCalculation = this.updateCalculation.bind(this);
   }
 
   // When an action button is clicked:
   // -- If operator = '=', perform calculations
   // -- Else add operator to calculation string
 
+  updateCalculation(e) {
+    this.props.updateCalculation(e.target.value);
+  }
+
   render() { 
     return ( 
       <div className='ActionButton'>
-        {this.state.operator}
+        <input type='button' onClick={this.updateCalculation} value={this.operator} />
       </div>
      );
   }
