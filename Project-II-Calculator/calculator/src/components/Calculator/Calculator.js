@@ -1,21 +1,30 @@
 import React, { Component } from 'react';
 import './Calculator.scss';
-import ActionButton from '../ButtonComponents/ActionButton';
-import NumberButton from '../ButtonComponents/NumberButton';
 import CalculatorDisplay from '../DisplayComponents/CalculatorDisplay';
+import Buttons from '../Buttons/Buttons';
 
 class Calculator extends Component {
   constructor(props) {
     super(props);
-    this.state = {  }
+    this.state = { 
+      calculation: '0',
+     }
+    this.updateCalculation = this.updateCalculation.bind(this);
   }
+
+  updateCalculation = (number) => {
+    this.setState({
+      ...this.state,
+      calculation: this.state.calculation === '0' ? number : this.state.calculation + number,
+    })
+  }
+
   render() { 
     return ( 
       <div>
-        Calculator
-        <CalculatorDisplay />
-        <ActionButton />
-        <NumberButton />
+        Calculator: {this.state.calculation}
+        <CalculatorDisplay calculation={this.state.calculation} />
+        <Buttons updateCalculation={this.updateCalculation} />
       </div>
      );
   }
