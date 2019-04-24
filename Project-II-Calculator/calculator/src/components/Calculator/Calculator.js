@@ -51,8 +51,6 @@ class Calculator extends Component {
       negative = true;
     }
 
-    console.log(operation);
-
     const numbers = operation[0].split(operator);
 
     if (negative) {
@@ -69,11 +67,21 @@ class Calculator extends Component {
   updateCalculation = (string) => {
     if (this.operators[string]) {
       if (string === '=') {
+        if (this.state.lastOperation != '') {
+          this.setState({
+            ...this.state,
+            calculation: this.calculate(this.state.calculation + this.state.lastOperation),
+            calculated: true,
+          });
+          return;
+        }
+        const lastOperation = /\D\d*$/.exec(this.state.calculation)[0];
         const result = this.calculate(this.state.calculation);
         this.setState({
           ...this.state,
           calculation: result,
           calculated: true,
+          lastOperation: lastOperation,
         });
         return;
       }
@@ -83,15 +91,16 @@ class Calculator extends Component {
           ...this.state,
           calculation: '0',
           calculated: false,
+          lastOperation: '',
         });
       } else {
         if (this.operators[this.state.calculation[this.state.calculation.length - 1]]) {
-          console.log(this.state.calculation);
           string = this.state.calculation.replace(/.$/, string);
           this.setState({
             ...this.state,
             calculation: string,
             calculated: false,
+            lastOperation: '',
           });
           return;
         }
@@ -106,6 +115,7 @@ class Calculator extends Component {
             ...this.state,
             calculation: this.state.calculation === '0' ? '0' : this.state.calculation + string,
             calculated: false,
+            lastOperation: '',
           });
         }
       }
@@ -127,6 +137,7 @@ class Calculator extends Component {
   }
 
   render() {
+    console.log(this.state);
     return ( 
       <div className='Calculator'>
         <CalculatorDisplay calculation={this.state.calculation} />

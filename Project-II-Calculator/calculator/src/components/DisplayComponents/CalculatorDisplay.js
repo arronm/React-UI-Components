@@ -6,13 +6,12 @@ class CalculatorDisplay extends Component {
     super(props);
     this.calculation = '0';
   }
-  
+
   componentWillReceiveProps(nextProps) {
     this.calculation = nextProps.calculation;
   }
-    
+
   render() {
-    // this.calculation = this.props.calculation;
     return (
       <div className='CalculatorDisplay'>
         <span>{this.calculation}</span>
@@ -20,5 +19,5 @@ class CalculatorDisplay extends Component {
     );
   }
 }
- 
+
 export default CalculatorDisplay;
