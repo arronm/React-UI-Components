@@ -39,7 +39,7 @@ class Calculator extends Component {
     if (operation === null) {
       operation = /\d*(\+|\-)\d*/.exec(calculation);
       if (!operation) {
-        if (negative = true) return '-' + calculation;
+        if (negative) return '-' + calculation;
         return calculation;
       }
     };
@@ -137,7 +137,6 @@ class Calculator extends Component {
   }
 
   render() {
-    console.log(this.state);
     return ( 
       <div className='Calculator'>
         <CalculatorDisplay calculation={this.state.calculation} />
