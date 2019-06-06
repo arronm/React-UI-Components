@@ -1,0 +1,14 @@
+@import '../../variables';
+
+.Footer {
+  display: flex;
+  justify-content: left;
+  margin: 15px 0 0 50px;
+  font-size: 1rem;
+  color: $mono-med;
+
+  i {
+    padding: 0 10px;
+    margin: 10px;
+  }
+}
